@@ -30,8 +30,8 @@
         var: myvpc
 
     - name: Display the myPVC output
-  debug:
-    var: myvpc
+      debug:
+        var: myvpc
 
     - name: Create Public Subnet 1 in Zone 1
       amazon.aws.ec2_vpc_subnet:
