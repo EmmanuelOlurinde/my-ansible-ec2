@@ -133,7 +133,6 @@
       community.aws.ec2_vpc_route_table:
         state: "{{ state }}"
         subnet_id: "{{mypubsub1_out.subnet.id}}"
-        wait: yes
         region: "{{region}}"
       register: MyNATGW_out
 
