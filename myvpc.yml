@@ -106,11 +106,12 @@
       register: myprivatesub3_out
 
     - name: Create an Internet Gateway Setup
-      amazon.aws.ec2_vpc_subnet:
+      amazon.aws.ec2_vpc_internet_gateway:
         vpc_id: "{{ myvpc.vpc.id }}"
         region: "{{ region }}"
         state: "{{ state }}"
         tags:
           Name: myVPC-Internet Gateway
       register: myInternet_Gateway_output
+
   
