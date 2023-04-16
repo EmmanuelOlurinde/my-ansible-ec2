@@ -130,7 +130,8 @@
       register: public_route_table_out
 
     - name: Create new Nat Gateway
-      ec2_vpc_route_table:
+      ec2_vpc_nat_gateway:
+        vpc_id: "{{ myvpc.vpc.id }}"
         state: "{{ state }}"
         subnet_id: "{{mypubsub1_out.subnet.id}}"
         wait: yes
