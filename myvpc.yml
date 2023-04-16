@@ -105,14 +105,7 @@
           Name: myVPC-privatesub3
       register: myprivatesub3_out
 
-    - name: Create an Internet Gateway Setup
-      amazon.aws.ec2_vpc_igw:
-        vpc_id: "{{ myvpc.vpc.id }}"
-        region: "{{ region }}"
-        state: "{{ state }}"
-        tags:
-          Name: myVPC-Internet Gateway
-      register: myInternet_Gateway_output
+   
 
 
   
