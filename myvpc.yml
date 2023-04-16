@@ -67,7 +67,7 @@
         map_public: yes
         tags:
           Name: myVPC-publicsub3
-      register: mypubsub1_out
+      register: mypubsub3_out
 
     - name: Create Private Subnet 1 in Zone 1
       amazon.aws.ec2_vpc_subnet:
