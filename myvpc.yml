@@ -127,8 +127,6 @@
       routes:
         - dest: 0.0.0.0/0
           gateway_id: "{{ myInternet_Gateway_output.gateway_id }}"
-        - dest: ::/0
-          gateway_id: "{{ myInternet_Gateway_output.gateway_id }}"
       register: public_route_table_out
    
 
