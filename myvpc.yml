@@ -129,5 +129,29 @@
             gateway_id: "{{ myInternet_Gateway_output.gateway_id }}"
       register: public_route_table_out
 
+     - name: Create new Nat Gateway
+      ec2_vpc_nat_gateway:
+        state: "{{ state }}"
+        subnet_id: "{{mypubsub1_out.subnet.id}}"
+        wait: yes
+        region: "{{region}}"
+        if_exit_do_not_create: true
+      register: MyNATGW_out
+
+     - name: Set up private route table
+      ec2_vpc_route_table:
+        vpc_id: "{{ myvpc.vpc.id }}"
+        region: "{{ region }}"
+        tags:
+          Name: myVPC-Private route table
+        subnets:
+          - "{{ myprivatesub1_out.subnet.id }}"
+          - "{{ myprivatesub2_out.subnet.id }}"
+          - "{{ myprivatesub3_outt.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ MyNATGW_out.nat_gateway_id }}"
+      register: private_route_table_out
+
 
   
