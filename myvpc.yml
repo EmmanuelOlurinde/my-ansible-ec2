@@ -20,18 +20,24 @@
         tenancy: default
         state: "{{state}}"
       register: myvpc
-
+    
     - name: Display the myPVC output
       debug:
         var: myvpc
+   
+    - name: Display the myPVC output
+      debug:
+        var: myvpc
+
     - name: Create Public Subnet 1 in Zone 1
-      amazon.aws.ec2_vpc_subnet:
-        vpc_id: "{{myvpc.vpc.id}}"
-        region: "{{region}}"
-        az: "{{zone1}}"
-        state: "{{state}}"
-        cidr: "{{PubSub1Cidr}}"
+      community.aws.ec2_vpc_subnet:
+        vpc_id: "{{ myvpc.vpc.id }}"
+        region: "{{ region }}"
+        az: "{{ zone1 }}"
+        state: "{{ state }}"
+        cidr_block: "{{ PubSub1Cidr }}"
         map_public: yes
-        resource_tag:
-          Name: myVPC-publicsub1
+        tags:
+           Name: myVPC-publicsub1
         register: mypubsub1_out
+
