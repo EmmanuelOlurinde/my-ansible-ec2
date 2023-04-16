@@ -139,7 +139,7 @@
       register: MyNATGW_out
 
     - name: Set up private route table
-      ec2_vpc_route_table:
+      community.aws.ec2_vpc_route_table:
         vpc_id: "{{ myvpc.vpc.id }}"
         region: "{{ region }}"
         tags:
