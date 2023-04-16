@@ -35,7 +35,7 @@
         region: "{{ region }}"
         az: "{{ zone1 }}"
         state: "{{ state }}"
-        cidr_block: "{{ PubSub1Cidr }}"
+        ipv4_cidr: "{{ PubSub1Cidr }}"
         map_public: yes
         tags:
            Name: myVPC-publicsub1
