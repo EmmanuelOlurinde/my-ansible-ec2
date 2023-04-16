@@ -1,0 +1,26 @@
+---
+- name: Create a new VPC
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: Import VPC
+      include_vars: varsetup/myvpc
+      amazon.aws.ec2_key:
+        name: my_keypair
+        region: us-east-2
+      register: keypair_result
+
+    - name: create my new VPC with dedicated tenancy and a couple of tags
+      amazon.aws.ec2_vpc_net:
+        name: "{{vpc_name}}"
+        cidr_block: "{{vpcCidr}}"
+        region: "{{region}}"
+        dns_support: yes
+        dns_hostnames: yes
+        tags:
+          module: My New VPC
+          this: works
+        tenancy: default
+        state: "{{state}}"
+      register: myvpc
