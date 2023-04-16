@@ -115,7 +115,7 @@
       register: myInternet_Gateway_output
 
     - name: Set up public route table
-      amazon.aws.ec2_vpc_route_table:
+      ec2_vpc_route_table:
         vpc_id: "{{ myvpc.vpc.id }}"
         region: "{{ region }}"
         tags:
