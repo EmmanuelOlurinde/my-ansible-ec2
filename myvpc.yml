@@ -120,15 +120,14 @@
         region: "{{ region }}"
         tags:
           Name: myVPC-Public route table
-      subnets:
-        - "{{ mypubsub1_out.subnet.id }}"
-        - "{{ mypubsub2_out.subnet.id }}"
-        - "{{ mypubsub3_out.subnet.id }}"
-      routes:
-        - dest: 0.0.0.0/0
-          gateway_id: "{{ myInternet_Gateway_output.gateway_id }}"
+        subnets:
+          - "{{ mypubsub1_out.subnet.id }}"
+          - "{{ mypubsub2_out.subnet.id }}"
+          - "{{ mypubsub3_out.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ myInternet_Gateway_output.gateway_id }}"
       register: public_route_table_out
-   
 
 
   
