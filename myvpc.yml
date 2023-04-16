@@ -75,7 +75,7 @@
         region: "{{ region }}"
         az: "{{ zone1 }}"
         state: "{{ state }}"
-        cidr: "{{ PrivateSub1Cidr: }}"
+        cidr: "{{ PrivateSub1Cidr }}"
         map_public: yes
         tags:
           Name: myVPC-privatesub1
@@ -87,7 +87,7 @@
         region: "{{ region }}"
         az: "{{ zone2 }}"
         state: "{{ state }}"
-        cidr: "{{ PrivateSub2Cidr: }}"
+        cidr: "{{ PrivateSub2Cidr }}"
         map_public: yes
         tags:
           Name: myVPC-privatesub2
@@ -99,7 +99,7 @@
         region: "{{ region }}"
         az: "{{ zone3 }}"
         state: "{{ state }}"
-        cidr: "{{ PrivateSub3Cidr: }}"
+        cidr: "{{ PrivateSub3Cidr }}"
         map_public: yes
         tags:
           Name: myVPC-privatesub3
